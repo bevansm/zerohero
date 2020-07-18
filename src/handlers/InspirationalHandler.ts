@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const baseUrl = 'https://inspirobot.me/api';
 class InspirationalHandler extends AbstractMessageHandler {
-  protected handleMessageTxt() {
+  protected createReply() {
     return axios.get(`${baseUrl}?generate=true`).then(r => r.data);
   }
 }

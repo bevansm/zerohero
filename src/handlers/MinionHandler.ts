@@ -1,6 +1,8 @@
 import AbstractMessageHandler from './AbstractMessageHandler';
 import axios from 'axios';
 import sample from 'lodash/sample';
+import { Message } from 'discord.js';
+import qs from 'qs';
 
 const minionTemplateIds: string[] = [
   '40407999',
@@ -18,15 +20,27 @@ const minionTemplateIds: string[] = [
 const baseUrl = 'https://api.imgflip.com';
 
 class MinionHandler extends AbstractMessageHandler {
-  protected async handleMessageTxt(msg: string) {
-    const [t0, t1 = ''] = msg.split(',', 1);
-    const form = new FormData();
-    form.append('template_id', sample(minionTemplateIds));
-    form.append('username', process.env.IMGFLIP_USER);
-    form.append('password', process.env.IMGFLIP_PASS);
-    form.append('text0', t0);
-    form.append('text1', t1);
-    return axios.post(`${baseUrl}/caption_image`).then(r => r.data.url);
+  protected async createReply(msg: Message) {
+    const { content } = msg;
+    const splitContent = content.split(',');
+    const text0 = splitContent.shift();
+    const text1 = splitContent.join(',');
+    const {
+      data: {
+        data: { url },
+      },
+      data,
+    } = await axios.post(
+      `${baseUrl}/caption_image`,
+      qs.stringify({
+        template_id: sample(minionTemplateIds),
+        username: process.env.IMGFLIP_USER,
+        password: process.env.IMGFLIP_PASS,
+        text0,
+        text1,
+      })
+    );
+    return url;
   }
 }
 
