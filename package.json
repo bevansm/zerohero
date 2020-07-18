@@ -1,0 +1,52 @@
+{
+  "name": "joybot",
+  "version": "0.0.0",
+  "description": "a webscrapper and all around good guy for mafia phpbb forms",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node --files src/index.ts",
+    "dev:watch": "nodemon",
+    "validate": "tslint --project tsconfig.json",
+    "prod": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mebird/joybot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cron": "^1.8.2",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.19"
+  },
+  "devDependencies": {
+    "@types/cron": "^1.7.2",
+    "@types/express": "^4.17.6",
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^13.13.4",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.9.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^5.1.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "exec": "npm run dev",
+    "ext": "ts",
+    "ignore": [
+      "*.spec.ts"
+    ],
+    "delay": "3"
+  }
+}
