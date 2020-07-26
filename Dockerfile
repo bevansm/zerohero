@@ -1,6 +1,4 @@
 FROM node:current-alpine3.12
-EXPOSE 80
-EXPOSE 443
 
 WORKDIR /usr/src/app/
 COPY package*.json ./
