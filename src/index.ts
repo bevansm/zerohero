@@ -1,14 +1,9 @@
-import dotenv from 'dotenv';
-import express from 'express';
 import { Client } from 'discord.js';
 import InspirationalHandler from './handlers/InspirationalHandler';
 import MinionHandler from './handlers/MinionHandler';
 import DadHandler from './handlers/DadHandler';
 
-dotenv.config({ path: __dirname + './../.env' });
-const app = express();
-
-const runner = async () => {
+const start = async () => {
   const client = new Client({
     restRequestTimeout: 600000,
     retryLimit: 10,
@@ -47,8 +42,6 @@ const runner = async () => {
       }
     }
   });
-
-  app.listen(8080);
 };
 
 process.on('SIGINT', () => {
@@ -56,4 +49,4 @@ process.on('SIGINT', () => {
   process.exit(1);
 });
 
-runner();
+start();

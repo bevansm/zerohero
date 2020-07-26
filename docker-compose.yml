@@ -1,0 +1,6 @@
+version: '3'
+services:
+  zerohero:
+    build: .
+    env_file: .env
+    container_name: zerohero

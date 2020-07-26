@@ -1,19 +1,20 @@
 {
-  "name": "joybot",
+  "name": "zerohero",
   "version": "0.0.0",
-  "description": "a webscrapper and all around good guy for mafia phpbb forms",
+  "description": "dumb fun discord bot",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node --files src/index.ts",
+    "start": "env-cmd node dist/index.js",
+    "start:prod": "node dist/index.js",
+    "dev": "env-cmd ts-node --files src/index.ts",
     "dev:watch": "nodemon",
     "validate": "tslint --project tsconfig.json",
     "prod": "node dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mebird/joybot.git"
+    "url": "git+https://github.com/mebird/zerohero.git"
   },
   "keywords": [],
   "author": "",
@@ -22,16 +23,16 @@
     "axios": "^0.19.2",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "lodash": "^4.17.19",
     "qs": "^6.9.4"
   },
   "devDependencies": {
     "@types/cron": "^1.7.2",
-    "@types/express": "^4.17.6",
     "@types/lodash": "^4.14.150",
     "@types/node": "^13.13.4",
+    "@types/qs": "^6.9.4",
     "@types/ws": "^7.2.6",
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.3",
     "ts-node": "^8.9.1",
     "ts-node-dev": "^1.0.0-pre.44",

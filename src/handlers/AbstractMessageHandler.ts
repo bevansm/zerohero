@@ -23,7 +23,6 @@ abstract class AbstractMessageHandler implements IMessageHandler {
 
   public async handleMessage(msg: Message): Promise<void> {
     try {
-      console.log(msg.author.username, '||', msg.content.substring(0, 10));
       await this.react(msg);
       await this.reply(msg);
     } catch (e) {
