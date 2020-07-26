@@ -17,7 +17,7 @@ class DadHandler extends AbstractMessageHandler {
       .get(baseUrl, { headers: { accept: 'application/json' } })
       .then(r => r.data);
     return `Hi${
-      contentSplit[1] ? ' ' + contentSplit.slice(1).join() : ''
+      contentSplit[1] ? ' ' + contentSplit.slice(1).join(' ') : ''
     }! I'm dad. ${joke}`;
   }
 }

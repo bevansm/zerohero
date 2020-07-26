@@ -35,12 +35,14 @@ const runner = async () => {
     if (!bot) {
       if (contentLower.indexOf('minion') > -1) {
         minionHandlder.handleMessage(msg);
-      } else if (
+      }
+      if (
         contentLower.indexOf('im') === 0 ||
         contentLower.indexOf("i'm") === 0
       ) {
         dadHandler.handleMessage(msg);
-      } else if (contentLower.indexOf('inspir') > -1) {
+      }
+      if (contentLower.indexOf('inspir') > -1) {
         inspirationalHandler.handleMessage(msg);
       }
     }

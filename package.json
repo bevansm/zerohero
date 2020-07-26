@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "start": "node dist/index.js",
     "dev": "ts-node --files src/index.ts",
     "dev:watch": "nodemon",
     "validate": "tslint --project tsconfig.json",
@@ -30,6 +31,7 @@
     "@types/express": "^4.17.6",
     "@types/lodash": "^4.14.150",
     "@types/node": "^13.13.4",
+    "@types/ws": "^7.2.6",
     "nodemon": "^2.0.3",
     "ts-node": "^8.9.1",
     "ts-node-dev": "^1.0.0-pre.44",
